@@ -3,9 +3,9 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC     = c++
 RM     = rm -f
 
-SRC    = Contact.cpp PhoneBook.cpp main.cpp
+SRC    = Contact.cpp PhoneBook.cpp main.cpp helpers.cpp
 OBJS   = $(SRC:%.cpp=%.o)
-HEADERS = Contact.hpp PhoneBook.hpp
+HEADERS = Contact.hpp PhoneBook.hpp main.hpp
 
 all: $(NAME)
 
