@@ -2,28 +2,65 @@
 #include <string>
 using namespace std;
 
-class A {
+class A
+{
+	protected:
+		string name;
 	public:
-		int a;
+		A(): name("Awbx") {
+			cout << "A constractor called\n";
+		};
+		string get() { return name; }
+		virtual void set(string name) { this->name = name; }
+		virtual ~A() {
+			cout << "A destructor called\n";
+		};
 };
 
-class B: virtual public A {
+
+class B: virtual public A
+{
 	public:
-		int b;
+		B() {
+			cout << "B constractor called\n";
+		}
+		virtual ~B() {
+			cout << "B destructor called\n";
+		}
 };
 
-class C: virtual public A {
+class C: virtual public A
+{
 	public:
-		int c;
+		C() {
+			cout << "C constractor called\n";
+		}
+		virtual ~C() {
+			cout << "C destructor called\n";
+		}
 };
 
-class D: public B, public C {
+class D: public B, public C
+{
+	private:
+		string name;
 	public:
-		int d;
+		D() {
+			cout << "D constractor called\n";
+		}
+		void show() { 
+			cout << this->name << " " << A::name << " " << B::name << " " << C::name << endl;
+		}
+		void set(string name) {
+			this->name = name;
+		}
+		~D() {
+			cout << "D destructor called\n";
+		}
 };
 
-int main () {
+int main() {
 	D d;
-
-	d.a = 0;
+	d.set("Oussama");
+	d.show();
 }
