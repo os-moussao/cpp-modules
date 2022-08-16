@@ -4,16 +4,16 @@ int min(int a, int b) { return a < b? a: b; }
 
 ClapTrap::ClapTrap()
 	: hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << "ClapTrap Default comstructor called\n";
+	std::cout << "ClapTrap default constructor called\n";
 }
 
 ClapTrap::ClapTrap(const std::string &name)
 	: name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << "ClapTrap Name constructor called\n";
+	std::cout << "ClapTrap name constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clap) {
-	std::cout << "ClapTrap Copy constructor called\n";
+	std::cout << "ClapTrap copy constructor called\n";
 	*this = clap;
 }
 
@@ -80,5 +80,5 @@ void ClapTrap::beRepaired(unsigned int amount) {
 
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap Destructor called\n";
+	std::cout << "ClapTrap destructor called\n";
 }

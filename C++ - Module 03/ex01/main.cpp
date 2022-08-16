@@ -2,7 +2,7 @@
 
 int main()
 {
-	ScavTrap a("Bob"), b("Thomas");
+	ScavTrap a("Bob"), b("Tom");
 
 	std::cout << std::endl;
 	a.attack(b.getName());

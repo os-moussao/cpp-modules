@@ -2,7 +2,7 @@
 
 int main()
 {
-	FragTrap a("Bob"), b("Thomas");
+	FragTrap a("Bob"), b("Tom");
 
 	std::cout << std::endl;
 	a.attack(b.getName());

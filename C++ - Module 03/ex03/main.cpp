@@ -1,35 +1,25 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	FragTrap a("Bob"), b("Thomas");
+	DiamondTrap a("Pablo");
 
 	std::cout << std::endl;
-	a.attack(b.getName());
+	a.whoAmI();
+	std::cout << a.getHitPoints() << " " << a.getEnergyPoints() << " " << a.getAttackDamage() << std::endl;
+
+	std::cout << std::endl;
+	ClapTrap	b("Tom"), c("Bob");
+
+	std::cout << std::endl;
+	a.attack("ALL CLAPTRAPS");
 	b.takeDamage(a.getAttackDamage());
-	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamage());
-	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamage());
-	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamage());
+	c.takeDamage(a.getAttackDamage());
 
 	std::cout << std::endl;
 	b.attack(a.getName());
+	c.attack(a.getName());
 
 	std::cout << std::endl;
-	b.beRepaired(10);
-
-	std::cout << std::endl;
-	b.attack(a.getName());
-	a.takeDamage(b.getAttackDamage());
-
-	std::cout << std::endl;
-	a.highFivesGuys();
-	b.highFivesGuys();
-
-	std::cout << std::endl;
-	std::cout << a.getName() << "'s remaining hit points: " << a.getHitPoints() << std::endl;
-	std::cout << b.getName() << "'s remaining hit points: " << b.getHitPoints() << std::endl;
-	std::cout << std::endl;
+	return 0;
 }

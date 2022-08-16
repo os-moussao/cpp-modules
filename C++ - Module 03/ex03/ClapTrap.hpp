@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+int min(int, int);
+
 class ClapTrap
 {
 	protected:
@@ -13,15 +15,15 @@ class ClapTrap
 		ClapTrap(const std::string &name);
 		ClapTrap(const ClapTrap &clap);
 		std::string getName() const;
-		int getHitPoints() const;
-		int getEnergyPoints() const;
-		int getAttackDamage() const;
-		void setHitPoints(int x);
-		void setEnergyPoints(int x);
-		void setAttackDamage(int x);
+		virtual int getHitPoints() const;
+		virtual int getEnergyPoints() const;
+		virtual int getAttackDamage() const;
+		virtual void setHitPoints(int x);
+		virtual void setEnergyPoints(int x);
+		virtual void setAttackDamage(int x);
 		void operator = (const ClapTrap &clap);
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-		~ClapTrap();
+		virtual void attack(const std::string& target);
+		virtual void takeDamage(unsigned int amount);
+		virtual void beRepaired(unsigned int amount);
+		virtual ~ClapTrap();
 };
