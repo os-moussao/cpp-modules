@@ -2,7 +2,6 @@
 
 Animal::Animal() {
 	std::cout << "Animal constructor called\n";
-	brain = new Brain();
 }
 
 void Animal::makeSound() const {
@@ -15,5 +14,4 @@ const std::string &Animal::getType() const {
 
 Animal::~Animal() {
 	std::cout << "Animal destructor called\n";
-	delete brain;
 }
