@@ -6,24 +6,45 @@
 
 int main()
 {
-	Animal *animals[SZ];
+	std::cout << "TEST 1:\n";
+	{
+		Animal *animals[SZ];
 
-	for (int i = 0; i < SZ; i++) {
-		if (i < SZ/2) {
-			animals[i] = new Dog();
+		for (int i = 0; i < SZ; i++) {
+			if (i < SZ/2) {
+				animals[i] = new Dog();
+			}
+			else {
+				animals[i] = new Cat();
+			}
 		}
-		else {
-			animals[i] = new Cat();
+
+		std::cout << std::endl;
+		for (int i = 0; i < SZ; i++) {
+			animals[i]->makeSound();
+		}
+
+		std::cout << std::endl;
+		for (int i = 0; i < SZ; i++) {
+			delete animals[i];
 		}
 	}
 
-	std::cout << std::endl;
-	for (int i = 0; i < SZ; i++) {
-		animals[i]->makeSound();
+	std::cout << "\nTEST 2:\n";
+	{
+		Dog d1;
+		{
+			Dog d2;
+			d2 = d1;
+		}
 	}
 
-	std::cout << std::endl;
-	for (int i = 0; i < SZ; i++) {
-		delete animals[i];
+	std::cout << "\nTEST 3:\n";
+	{
+		Cat c1;
+		{
+			Cat c2;
+			c2 = c1;
+		}
 	}
 }

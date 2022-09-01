@@ -3,18 +3,18 @@
 
 int main()
 {
-	const Cat* i = new Cat();
-	const Dog* j = new Dog();
+	const Animal* cat = new Cat();
+	const Animal* dog = new Dog();
 
 	std::cout << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
+	std::cout << dog->getType() << " " << std::endl;
 
 	std::cout << std::endl;
-	i->makeSound();
-	j->makeSound();
+	cat->makeSound();
+	dog->makeSound();
 
 	std::cout << std::endl;
-	delete i;
-	delete j;
+	delete cat;
+	delete dog;
 }
