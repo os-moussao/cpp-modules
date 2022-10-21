@@ -22,7 +22,7 @@ class Form
 			virtual const char *what(void) const throw();
 		};
 		Form(const std::string &name, int grade_sign, int grade_exec);
-		~Form();
+		virtual ~Form();
 		const std::string &getName() const;
 		bool isSigned() const;
 		int getGradeSign() const;
