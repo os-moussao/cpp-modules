@@ -61,9 +61,9 @@ double convert(std::string &date, double amt) {
 }
 
 std::string handle(std::stringstream &query, std::string &squery) {
-    std::string date, delim, amount;
+    std::string date, delim, amount, rest;
     
-    if (!(query >> date) || !(query >> delim) || !(query >> amount)) {
+    if (!(query >> date) || !(query >> delim) || !(query >> amount) || (query >> rest)) {
         return "Error: bad query => " + squery;
     }
 
