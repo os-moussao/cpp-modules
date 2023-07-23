@@ -6,38 +6,28 @@ const char * ExprError::what() const throw() {
 
 Token::Token(int type, int value) : type(type), value(value) {};
 
-Token makeToken(std::string &stok) {
-    if (stok == "+")
-        return Token(PLUS);
-    if (stok == "-")
-        return Token(MINUS);
-    if (stok == "*")
-        return Token(MULT);
-    if (stok == "/")
-        return Token(DIV);
-    
-    size_t idx;
-    int val;
-
-    try {
-        val = std::stoi(stok, &idx);
-    } catch (std::exception &e) {
-        // ignore stoi error
-        idx = ULLONG_MAX, val = 0;
+Token makeToken(char stok) {
+    switch (stok) {
+        case '+':
+            return Token(PLUS);
+        case '-':
+            return Token(MINUS);
+        case '*':
+            return Token(MULT);
+        case '/':
+            return Token(DIV);
+        default:
+            return isdigit(stok) ? Token(NBR, stok - '0') : Token(UNK);
     }
-
-    if (idx != stok.size() || abs(val) > 10)
-        return Token(UNK);
-    
-    return Token(NBR, val);
 }
 
 int calc(char *expression) {
     std::stringstream expr(expression);
-    std::string stok;
     std::stack<int> stak;
+    char stok;
 
     while (expr >> stok) {
+
         Token tok = makeToken(stok);
 
         if (tok.type & UNK)
@@ -52,7 +42,7 @@ int calc(char *expression) {
             if (stak.size() < 2)
                 throw ExprError();
 
-            // get left and right            
+            // get left and right
             int r = stak.top(); stak.pop();
             int l = stak.top(); stak.pop();
 
